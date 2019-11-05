@@ -21,6 +21,11 @@ RUN php -r "if (hash_file('sha384', 'composer-setup.php') === 'a5c698ffe4b8e849a
 RUN php composer-setup.php --install-dir=/bin --filename=composer
 RUN php -r "unlink('composer-setup.php');"
 
-#ADD bin/xdebug-2.8.0.tgz /tmp
-
-#WORKDIR /tmp/xdebug-2.8.0/
+# Installation xdebug
+ADD bin/xdebug-2.8.0.tgz /tmp
+WORKDIR /tmp/xdebug-2.8.0/
+RUN phpize
+RUN ./configure
+RUN make
+RUN mkdir -p /usr/local/lib/php/extensions/no-debug-non-zts-20180731
+RUN cp modules/xdebug.so /usr/local/lib/php/extensions/no-debug-non-zts-20180731

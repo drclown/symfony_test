@@ -1,11 +1,14 @@
 version: '3'
 services:
   php:
-    image: tompouce/php7.2-fpm-alpine-symfony:0.1
+    image: tompouce/php7.2-fpm-alpine-symfony:0.2
     volumes:
       - ../app:/home/www/symfony_test
       - ../app_demo:/home/www/my-project-name
       - ~/.gitconfig:/root/.gitconfig
+      - ./php/conf/php.ini:/usr/local/etc/php/php.ini
+    ports:
+      - "9000:9000"
     working_dir: /home/www/
     tty: true
   nginx-server:
