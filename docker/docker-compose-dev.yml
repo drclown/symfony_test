@@ -1,23 +1,23 @@
 version: '3'
 services:
   php:
-    image: tompouce/php7.2-fpm-alpine-symfony:0.2
+    image: tompouce/php7.2-fpm-alpine-symfony:0.3
     volumes:
-      - ../app:/home/www/symfony_test
-      - ../app_demo:/home/www/my-project-name
+      - ../app:/home/www/symfonyproject
       - ~/.gitconfig:/root/.gitconfig
       - ./php/conf/php.ini:/usr/local/etc/php/php.ini
-    ports:
-      - "9000:9000"
+      - ./dockerlive/logs:/var/log
     working_dir: /home/www/
+    environment:
+      - PHP_IDE_CONFIG=serverName=symfonyproject_server
     tty: true
   nginx-server:
     image: tompouce/nginx-1.17.5-alpine:0.1
     ports:
-      - "8888:80"
+      - '8888:80'
     links:
       - php
     volumes:
-      - ../app:/home/www/symfony_test
-      - ../app_demo:/home/www/my-project-name
+      - ../app:/home/www/symfonyproject
       - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - ./dockerlive/logs:/var/log/nginx

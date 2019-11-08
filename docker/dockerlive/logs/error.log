@@ -1,0 +1,2 @@
+2019/11/06 13:08:38 [error] 6#6: *5 open() "/home/www/symfony_test/favicon.ico" failed (2: No such file or directory), client: 172.25.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8888"
+2019/11/06 15:47:37 [error] 6#6: *1 "/home/www/symfony_test/index.php" is not found (2: No such file or directory), client: 172.31.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost:8888"
