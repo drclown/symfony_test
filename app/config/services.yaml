@@ -23,5 +23,14 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
+    # Disponible seulement pour ce service
+    App\Service\MailLogger:
+        arguments:
+            $adminEmail: 'thomaspeyrou@gmail.com'
+
+    App\EventListener\BarListener:
+        tags:
+            - { name: kernel.event_listener, event: foo, method: doSomething }
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

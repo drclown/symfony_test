@@ -5,6 +5,7 @@ use Symfony\Component\Debug\Debug;
 use Symfony\Component\HttpFoundation\Request;
 
 require dirname(__DIR__).'/config/bootstrap.php';
+//$dbh = new PDO('mysql:host=db:3306;dbname=blog', 'tompouce', 'tompouce');
 
 if ($_SERVER['APP_DEBUG']) {
     umask(0000);

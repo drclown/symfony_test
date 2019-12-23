@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Hello{% endblock%}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <!--<link rel="stylesheet" href="produit.css" type="text/css" media="all" />-->
+{% endblock%}
+
+{% block body %}
+    Hello {{ name }} !
+{% endblock %}
+
+{% block javascripts %}
+<!--<script src="build/produit.js" />-->
+{% endblock %}
+
