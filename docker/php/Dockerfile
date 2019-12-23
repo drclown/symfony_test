@@ -9,6 +9,8 @@ make \
 autoconf \
 build-base
 
+RUN docker-php-ext-install -j$(nproc) pdo pdo_mysql
+
 WORKDIR /tmp
 
 # Installation symfony cli
